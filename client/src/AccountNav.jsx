@@ -7,8 +7,10 @@ import axios from "axios"
 export default function AccountNav() {
   const [redirect,setRedirect] = useState(null);
   const {pathname} = useLocation();
-  let subpage = pathname.split('/')?.[2];
-  if (subpage === undefined) {
+ // let subpage = pathname.split('/')?.[2];
+ let {subpage} =useParams()
+ console.log(subpage)
+ if (subpage === undefined) {
     subpage = 'profile';
   }
   const {ready,user,setUser}=useContext(UserContext)
@@ -70,7 +72,7 @@ export default function AccountNav() {
       
         <PlacesPage />
       )}
-      {console.log(subpage)}
+     
     </div> 
   )
     // <nav className="w-full flex justify-center mt-8 gap-2 mb-8">
